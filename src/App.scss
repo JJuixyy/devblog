@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+header {
+
+    .title {
+        color: black;
+        padding-left: 50px;
+        font-size: 1.8rem;
+        font-weight: 900;  
+    }
+
+    .navigation {
+        background-color: mediumaquamarine;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .menu {
+            display: flex;
+            
+            li {
+                margin: 30px;
+                font-weight: 900;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
