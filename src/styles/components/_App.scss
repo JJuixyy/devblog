@@ -30,4 +30,10 @@ header {
             }
         }
     }
+
+    .selected {
+        padding: 5px;
+        border: 2px dashed black;
+        box-shadow: 5px 5px 5px white;
+    }
 }
