@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../styles/components/_Blog.scss";
 import data from '../data';
 import Posts from '../components/Posts';
@@ -19,6 +19,26 @@ const Blog = () => {
     const [post,setPost] = useState({});
     const [message, setMessage] = useState(data)
 
+    const url = 'http://localhost:3000/api/v1/posts'
+
+        const [posts, setPosts] = useState([])
+
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch(url)
+                const posts = await response.json()
+                setPosts(posts);
+                console.log(posts);
+
+            } catch (error) {
+                console.log(error);
+            }
+    }
+
+    useEffect(() => {
+        fetchPosts()
+    },[])
+
     return (
         <div className="blog">
             <h2>DevBlog Publication</h2>
@@ -37,7 +57,7 @@ const Blog = () => {
                 <input type="submit" value="Créer mon post" id="submit"/>
             </form>
 
-            <Posts message={message}/>
+            <Posts message={posts}/>
         </div>
     )
 }
